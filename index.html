@@ -1,28 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sales Associates Queue</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Queue</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Sales Associates Queue</h1>
-  <form id="associate-form">
-    <label for="associate-name">Enter your name:</label>
-    <input type="text" id="associate-name" required>
-    <button type="submit">Join Queue</button>
-  </form>
-  <section class="queue-container">
-    <div class="queue-box">
-      <h2>Who is next:</h2>
-      <ul id="queue"></ul>
+    <div class="container">
+        <h1>Sales Queue</h1>
+        <input type="text" id="nameInput" placeholder="Enter associate name">
+        <button id="addName">Add to Queue</button>
+        <h2>Waiting in Line</h2>
+        <ul id="waitingQueue"></ul>
+        <h2>Currently With</h2>
+        <hr class="black-line">
+        <ul id="currentlyWith"></ul>
     </div>
-    <div class="with-customer-box">
-      <h2>With Customer:</h2>
-      <ul id="with-customer"></ul>
-    </div>
-  </section>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
