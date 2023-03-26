@@ -32,4 +32,18 @@ document.addEventListener('DOMContentLoaded', () => {
         backToQueueButton.addEventListener('click', () => {
           withCustomer.removeChild(listItem);
           listItem.classList.remove('with-customer');
-          listItem.classList.add('queue
+          listItem.classList.add('queue-item');
+          listItem.removeChild(backToQueueButton);
+
+          listItem.appendChild(withCustomerButton);
+          queue.appendChild(listItem);
+        });
+
+        withCustomer.appendChild(listItem);
+      });
+
+      queue.appendChild(listItem);
+      associateNameInput.value = '';
+    }
+  });
+});
