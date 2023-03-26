@@ -1,49 +1,52 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const associateForm = document.getElementById('associate-form');
-  const associateNameInput = document.getElementById('associate-name');
-  const queue = document.getElementById('queue');
-  const withCustomer = document.getElementById('with-customer');
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  associateForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-    const name = associateNameInput.value.trim();
-    if (name) {
-      const listItem = document.createElement('li');
-      listItem.classList.add('queue-item');
-      listItem.textContent = name;
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
-      const withCustomerButton = document.createElement('button');
-      withCustomerButton.textContent = 'With Customer';
+input[type="text"] {
+  width: 100%;
+  margin-right: 10px;
+  padding: 5px;
+}
 
-      listItem.appendChild(withCustomerButton);
+button {
+  padding: 5px;
+}
 
-      withCustomerButton.addEventListener('click', () => {
-        queue.removeChild(listItem);
-        listItem.classList.add('with-customer');
-        listItem.classList.remove('queue-item');
-        listItem.removeChild(withCustomerButton);
+.queue-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
 
-        const backToQueueButton = document.createElement('button');
-        backToQueueButton.textContent = 'Back to Queue';
+.queue-box, .with-customer-box {
+  flex-grow: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
 
-        listItem.appendChild(backToQueueButton);
+.queue-box:last-child, .with-customer-box:last-child {
+  margin-right: 0;
+}
 
-        backToQueueButton.addEventListener('click', () => {
-          withCustomer.removeChild(listItem);
-          listItem.classList.remove('with-customer');
-          listItem.classList.add('queue-item');
-          listItem.removeChild(backToQueueButton);
+.queue-item {
+  color: green;
+}
 
-          listItem.appendChild(withCustomerButton);
-          queue.appendChild(listItem);
-        });
-
-        withCustomer.appendChild(listItem);
-      });
-
-      queue.appendChild(listItem);
-      associateNameInput.value = '';
-    }
-  });
-});
+.with-customer {
+  color: red;
+}
